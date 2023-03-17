@@ -30,9 +30,26 @@ resten de forma equivalent
 def fes_examens(num_preguntes, num_preguntes_resposes, 
                         num_preguntes_aleatories, num_opcions):
     #Init variables
+    aprovats = 0;
+
     #Calcula nota sense preguntes aleatories
+    notaSegura = num_preguntes_resposes * 10 / num_preguntes
+
     #Fes 100.000 intents, calcula respostes aleatories i comprova aprovat o suspes
-    return 0
+    for intent in range(0, 100000):
+        nota = notaSegura
+        for intent2 in range(0, num_preguntes_aleatories):
+            opcioCorrecte =  randint(1, num_opcions)
+            opcioEscollida = randint(1, num_opcions)
+            if opcioEscollida == opcioCorrecte:
+                    nota += 10/num_preguntes
+            else:
+                    nota -= (10/num_preguntes) / (num_opcions-1)
+
+            if nota >= 5:
+                aprovats += aprovats + 1
+
+    return aprovats/100000
 
 
 '''
