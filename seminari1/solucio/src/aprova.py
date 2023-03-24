@@ -7,7 +7,7 @@
 ##########################################################################
 
 from random import randint
-
+from decimal import Decimal
 
 '''
 Funció que genera dos nombres aleatoris entre 1 i num_opcions i els compara. Retorna True si son iguals, False si no ho son.
@@ -30,7 +30,7 @@ resten de forma equivalent
 def fes_examens(num_preguntes, num_preguntes_resposes, 
                         num_preguntes_aleatories, num_opcions):
     #Init variables
-    aprovats = 0;
+    aprovats = 0
 
     #Calcula nota sense preguntes aleatories
     notaSegura = num_preguntes_resposes * 10 / num_preguntes
@@ -46,8 +46,8 @@ def fes_examens(num_preguntes, num_preguntes_resposes,
             else:
                     nota -= (10/num_preguntes) / (num_opcions-1)
 
-            if nota >= 5:
-                aprovats += aprovats + 1
+        if nota >= 5:
+            aprovats = aprovats + 1
 
     return aprovats/100000
 
